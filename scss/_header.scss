@@ -1,0 +1,213 @@
+.head {
+    width: 100%;
+    max-width: 100%;
+    height: 1000px;
+    background-image:
+     url(../pics/phone.avif),
+     url(../pics/phone.webp),
+     url(../pics/phone.jpg);
+    background-repeat: no-repeat;
+    background-position: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative; /* Убедитесь, что header фиксирован */
+    top: 0;
+    left: 0;
+    transition: opacity 1s ease-out, background-color 1s ease-out;
+    z-index: 10; /* Убедитесь, что header находится выше других элементов */
+
+    &__blocktitle {
+        display: flex;
+    justify-content: center;
+    position: relative;
+    left: 200px;
+    top: -100px;
+    flex-direction: column;
+    gap: 15px;
+    text-align: right;}
+
+    &__title {
+        color: white;
+    font-family: 'NumbyB';
+    font-size: 2.4rem;}
+
+    &__blocktext {
+        display: flex;
+    flex-direction: column;
+    gap: 50px; }
+
+    &__text {
+        color: white;
+    font-family: 'RobotoR';
+    font-size: 1.5rem;}
+
+    &__section {
+        text-decoration: none;
+    }
+
+}
+
+header, .hidden {
+    transform: translateY(1px);
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out; 
+}
+
+
+header.visible, .hidden.visible {
+    transform: translateY(0); 
+}
+
+// ============================================================
+
+
+
+.head__button-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    left: 120px;
+}
+
+.head__button {
+    color: #FFF;
+    transition: all 0.5s;
+    width: 300px;
+    height: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 12px;
+    cursor: pointer;
+    position: relative;
+    border: none;
+    background: transparent;
+}
+
+.head__button-text {
+    -webkit-text-stroke: 0px;
+    font-size: 1.3rem;
+    z-index: 2;
+    display: block;
+    width: 100%;
+    height: 100%;
+}
+
+.head__button::before,
+.head__button::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+    transition: all 0.5s;
+    border: 1px solid rgba(255,255,255,0.2);
+    background-color: rgba(255,255,255,0.1);
+}
+
+.head__button::before {
+    transform: rotate(0deg);
+}
+
+.head__button::after {
+    transform: rotate(0deg);
+}
+
+.head__button:hover::before {
+    transform: rotate(-45deg);
+    background-color: rgba(255,255,255,0);
+}
+
+.head__button:hover::after {
+    transform: rotate(45deg);
+    background-color: rgba(255,255,255,0);
+}
+
+
+@media (max-width: 1024px) {
+    .head__blocktitle {
+        left: 100px;
+        top: -80px;
+    }
+
+    .head__title {
+        font-size: 2rem;
+    }
+
+    .head__text {
+        font-size: 1.3rem;
+    }
+
+    .head__button-container {
+        left: 80px;
+    }
+
+    .head__button {
+        width: 250px;
+        height: 45px;
+    }
+
+    .head__button-text {
+        font-size: 1.2rem;
+    }
+}
+
+/* Медиазапрос для мобильных телефонов */
+@media (max-width: 768px) {
+
+    html, body {
+        overflow-x: hidden; /* Отключение горизонтального скролла для всей страницы */
+    }
+    
+    .head {
+        max-height: 800px;
+    }
+
+    .head__blocktitle {
+        left: 0;
+        top: 0;
+        text-align: center;
+    }
+
+    .head__title {
+        font-size: 1.6rem;
+    }
+
+    .head__text {
+        font-size: 0.85rem;
+        -webkit-text-stroke: 0.4px #333;
+    }
+
+    .head__button-container {
+        left: 0;
+    }
+
+    .head__button {
+        width: 200px;
+        height: 40px;
+    }
+
+    .head__button-text {
+        font-size: 1rem;
+    }
+
+    .head__button {
+        transition: background-color 0.3s ease, transform 0.3s ease; /* Уменьшить длительность и тип перехода */
+        border: 1px solid lightgray;
+        padding: 10px;
+    }
+
+    .head__button:hover {
+        background-color: rgba(255, 255, 255, 0.2); /* Легкое изменение фона при наведении */
+        transform: scale(1.1); /* Увеличение размера кнопки */
+    }
+
+    .head__button::before,
+    .head__button::after {
+        display: none; /* Удалить псевдоэлементы для простоты */
+    }
+}

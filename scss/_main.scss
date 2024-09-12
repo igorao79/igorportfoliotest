@@ -1,0 +1,180 @@
+.main {
+    width: 100%;
+    max-width: 100%;
+    height: 919px;
+    background-color: #f0f0f0; /* Резервный цвет */
+    background-image: 
+        radial-gradient(circle, rgba(255, 255, 255, 0.15) 1px, transparent 1px), /* Вкрапления с прозрачностью */
+        radial-gradient(circle, rgba(255, 255, 255, 0.15) 1px, transparent 1px),
+        linear-gradient(15deg, #13547a 0%, #80d0c7 100%); /* Твой основной градиентный фон */
+    background-size: 
+        20px 20px, 
+        20px 20px, 
+        cover; /* Размещение для градиента и вкраплений */
+    background-position: 
+        0 0, 
+        10px 10px, 
+        center; /* Смещение вкраплений */
+    display: flex;
+    justify-content: center;
+    position: relative;
+    padding: 0;
+    text-align: center;
+    padding-top: 50px;
+    transition: opacity 1s ease-out, background-color 1s ease-out;
+
+    &__titeblock {
+        position: relative;
+        top: -10px;
+    }
+
+    &__title {
+        font-family: 'NumbyB';
+        color: white;
+        font-size: 3rem;
+    }
+    
+    &__content {
+        display: flex;
+        justify-content: center;
+        padding: 40px;
+        position: relative;
+        top: 30px;
+    }
+
+    &__grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr); /* Три равные колонки */
+        grid-template-rows: repeat(auto-fit, minmax(200px, auto)); /* Высота строк автоматически подстраивается */
+        gap: 30px; /* Расстояние между элементами сетки */
+        max-width: 1000px; /* Опционально: максимальная ширина контейнера сетки */
+        width: 100%; /* Занимает всю доступную ширину */
+    }
+
+    &__item {
+        -webkit-text-stroke: 0px;
+        background-color: #f0f0f0; /* Цвет фона для блоков */
+        display: flex;
+        flex-direction: column;
+        gap: 5px;
+        text-align: center; /* Выравнивание текста по центру */
+        background: #fff;
+        font-family: 'RobotoR', sans-serif;;
+        line-height: 30px;
+        font-weight: bold;
+        color: #022724;
+        overflow: hidden;
+        padding: 50px;
+        box-shadow:
+            inset #009688 0 0 0 5px, 
+          inset #059c8e 0 0 0 1px, 
+          inset #0cab9c 0 0 0 10px, 
+          inset #1fbdae 0 0 0 11px, 
+          inset #8ce9ff 0 0 0 16px, 
+          inset #48e4d6 0 0 0 17px, 
+          inset #e5f9f7 0 0 0 21px, 
+          inset #bfecf7 0 0 0 22px;
+        text-shadow: 3px 3px 1px #bfecf7;
+        transition: transform 0.4s ease;
+        cursor: pointer;
+    }
+
+    &__item h3 {
+        transition: filter 0.3s ease;
+        filter: blur(2px);
+    }
+    &__item p {
+        transition: filter 0.3s ease;
+        filter: blur(2px);
+    }
+    
+    &__item:hover h3 {
+        filter: none;
+    }
+    &__item:hover p {
+        filter: none;
+    }
+    
+
+    &__itemtext {
+        font-size: 0.9rem;
+        color: black;
+    }
+
+    &__item--wide {
+        grid-column: span 2;
+    }
+    &__item--wide2 {
+        grid-column: span 3;
+    }
+}
+
+
+
+
+@media (max-width: 1024px) {
+    .main__grid {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px; /* Уменьшение расстояния между элементами */
+    }
+
+    .main__item {
+        flex: 1 1 calc(50% - 10px); /* Две колонки с учетом отступов */
+        padding: 10px;
+        font-size: 0.8rem;
+        max-width: calc(50% - 10px); /* Максимальная ширина для двух колонок */
+    }
+
+    .main__title {
+        font-size: 1.4rem;
+    }
+
+    .main__item h3 {
+        font-size: 0.9rem;
+    }
+
+    .main__item p {
+        font-size: 0.7rem;
+    }
+}
+
+/* Медиазапрос для мобильных телефонов */
+@media (max-width: 768px) {
+
+
+
+    html, body {
+        overflow-x: hidden; /* Отключение горизонтального скролла для всей страницы */
+    }
+
+
+    .main {
+        max-height: 920px;
+    }
+
+    .main__grid {
+        flex-direction: row
+    }
+
+    .main__item {
+        padding: 25px;
+        font-size: 0.5rem;
+        max-width: 100%; /* Максимальная ширина для одного блока */
+        max-height: 400px;
+        overflow: hidden;
+        will-change: transform, opacity;
+    }
+
+    .main__title {
+        font-size: 1.2rem;
+    }
+
+    .main__item h3 {
+        font-size: 0.8rem;
+    }
+
+    .main__item p {
+        font-size: 0.6rem;
+    }
+}

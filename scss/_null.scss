@@ -1,0 +1,93 @@
+*, *::after, *::before {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+img {
+    vertical-align: top;
+}
+
+html {
+    font-size: 20px;
+    -webkit-text-stroke: 1px #333;
+    scroll-behavior: smooth;
+}
+
+
+/* Скрытие элементов по умолчанию */
+.hidden {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+/* Класс для показа элементов */
+.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+
+.loader {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(255, 255, 255, 0.8); /* Полупрозрачный фон */
+    z-index: 9999;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.spinner {
+    border: 8px solid rgba(0, 0, 0, 0.1);
+    border-radius: 50%;
+    border-top: 8px solid #000;
+    width: 60px;
+    height: 60px;
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+.content {
+    display: none; /* Скрыть основной контент до загрузки */
+}
+
+/* Отключить прокрутку */
+.no-scroll {
+    overflow: hidden;
+}
+
+
+// ======================================================
+
+
+@font-face {
+   font-family: 'RobotoR';
+   src: url('../fonts/RobotoR.woff2') format('wofft2'),
+        url('../fonts/RobotoR.woff') format('woff');
+   font-weight: 400;
+   font-style: normal;
+   font-display: swap;
+}
+@font-face {
+   font-family: 'NumbyB';
+   src: url('../fonts/NumbyB.woff2') format('wofft2'),
+        url('../fonts/NumbyB.woff') format('woff');
+   font-weight: 600;
+   font-style: normal;
+   font-display: swap;
+}
+
+
+:focus {
+    outline: none;
+    box-shadow: 0 0 0 3px hsla(220, 100%, 50%, 80%);
+  }

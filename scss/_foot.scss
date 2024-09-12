@@ -1,0 +1,273 @@
+.foot {
+    width: 100%;
+    height: 1000px;
+    background-color: #f0f0f0; /* Резервный цвет */
+background-image: 
+    radial-gradient(circle, rgba(255, 255, 255, 0.2) 2px, transparent 2px), /* Более крупные вкрапления с прозрачностью */
+    radial-gradient(circle, rgba(255, 255, 255, 0.1) 1px, transparent 1px), /* Мелкие вкрапления */
+    linear-gradient(109.6deg, rgb(5, 85, 84) 11.2%, rgb(64, 224, 208) 91.1%); /* Новый основной градиент */
+background-size: 
+    25px 25px, /* Размер для крупных вкраплений */
+    10px 10px, /* Размер для мелких вкраплений */
+    cover; /* Покрытие всего фона градиентом */
+background-position: 
+    0 0, /* Позиция для крупных вкраплений */
+    5px 5px, /* Смещение мелких вкраплений */
+    center; /* Центровка основного градиента */
+    display: flex;
+    justify-content: center;
+    position: relative;
+    padding-top: 150px;
+
+
+    &__blocktitle {
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+        gap: 150px;
+    }
+
+    &__title {
+        font-family: 'NumbyB';
+        color: white;
+        font-size: 3rem;
+    }
+
+    &__content {
+        display: flex;
+        justify-content: center;
+
+        position: relative;
+        align-items: flex-start;
+        top: 30px;
+    }
+
+    &__grid {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr); 
+        grid-template-rows: repeat(auto-fill, minmax(200px, auto));
+        gap: 30px; 
+        max-width: 100%; 
+        width: 100%; 
+    }
+
+    &__item {
+        min-width: 200px;
+        min-height: 200px;
+        -webkit-text-stroke: 0px;
+        background-color: #f0f0f0; 
+        display: flex;
+        flex-direction: column;
+        gap: 15px;
+        text-align: center; 
+        background: #fff;
+        font-family: 'RobotoR', sans-serif;;
+        line-height: 30px;
+        font-weight: bold;
+        color: #022724;
+        overflow: hidden;
+        align-items: center;
+        justify-content: center;
+        box-shadow:
+            inset #009688 0 0 0 5px, 
+          inset #059c8e 0 0 0 1px, 
+          inset #0cab9c 0 0 0 10px, 
+          inset #1fbdae 0 0 0 11px, 
+          inset #8ce9ff 0 0 0 16px, 
+          inset #48e4d6 0 0 0 17px, 
+          inset #e5f9f7 0 0 0 21px, 
+          inset #bfecf7 0 0 0 22px;
+        text-shadow: 3px 3px 1px #bfecf7;
+        transition: transform 0.4s ease;
+        cursor: pointer;
+        transition: 0.5s;
+    }
+
+    &__item:hover {
+        background-color: #009688;
+    }
+
+    &__item--wide {
+        grid-column: span 4;
+    }
+
+    &__item span {
+        color: gold;
+    }
+
+    &__itempicture {
+        width: 50px;
+        height: 50px;
+        display: flex;
+        flex-direction: row;
+        position: relative;
+        justify-content: center;
+
+    }
+
+    &__itemimage {
+        width: 100%;
+        height: 100%;
+    }
+
+    &__itemimages {
+        align-items: center;
+        justify-content: center;
+        display: flex;
+        flex-direction: row;
+        gap: 20px;
+    }
+
+    &__itemsocial-link:focus {
+        outline: none;
+        box-shadow: none;
+        animation: shake 0.5s ease-in-out forwards;
+    }
+
+    &__itemsocial {
+        width: 100px;
+        height: 100px;
+        display: flex;
+        flex-direction: row;
+        position: relative;
+        justify-content: center;
+        align-items: center;
+    }
+
+
+    &__itemsocial:hover {
+        animation: shake 0.5s ease-in-out forwards;
+    }
+
+
+    &__itemsocialimg {
+        width: 100%;
+        height: auto;
+    }
+
+
+    &__itemsocialimg2 {
+        width: 70%;
+        height: 70%;
+    }
+
+    &__itemsocialblock {
+        display: flex;
+        gap: 50px;
+    }
+
+    &__itempic {
+        width: 50px;
+        height: 50px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    &__itemimg {
+        width: 100%;
+        height: 100%;
+    }
+
+    &__itemtitle {
+        font-size: 1.1rem;
+    }
+
+    &__itemtext {
+        font-size: 0.9rem;
+    }
+}
+
+
+@keyframes shake {
+    0%, 100% {
+        transform: translateX(0);
+    }
+    25% {
+        transform: translateX(-5px);
+    }
+    50% {
+        transform: translateX(5px);
+    }
+    75% {
+        transform: translateX(-5px);
+    }
+}
+
+
+@media (max-width: 1024px) {
+    .foot__title {
+        font-size: 1.8rem; /* Уменьшение размера шрифта заголовка */
+    }
+
+    .foot__content {
+        gap: 20px; /* Уменьшение отступов внутри контейнера */
+    }
+
+    .foot__item {
+        padding: 15px; /* Уменьшение отступов внутри блоков */
+        font-size: 0.9rem; /* Уменьшение размера шрифта */
+    }
+
+    .foot__item span {
+        color: gold;
+    }
+}
+
+/* Медиазапрос для мобильных телефонов (до 768px) */
+@media (max-width: 768px) {
+    html, body {
+        overflow-x: hidden; /* Отключение горизонтального скролла для всей страницы */
+    }
+    
+
+
+    .foot {
+        height: auto; /* Уменьшаем высоту футера */
+        padding-top: 80px; /* Уменьшаем отступ сверху */
+    }
+
+    .foot__title {
+        font-size: 1.4rem; /* Уменьшение размера шрифта заголовка */
+    }
+
+
+    .foot__content {
+        gap: 0px; /* Уменьшение отступов внутри контейнера */
+        top: -50px;
+    }
+
+    .foot__item {
+        padding: 10px; /* Уменьшение отступов внутри блоков */
+        font-size: 0.8rem; /* Уменьшение размера шрифта */
+    }
+
+    .foot__itempicture {
+        width: 50px; /* Уменьшение размера изображений */
+        height: 50px;
+    }
+
+    .foot__itemsocial {
+        width: 70px; /* Уменьшение размера социальных иконок */
+        height: 70px;
+    }
+
+    .foot__grid {
+        grid-template-columns: repeat(2, 1fr); /* Две колонки */
+        grid-template-rows: auto; /* Автоматическая высота строк */
+        gap: 0; /* Удаление промежутков между элементами */
+        padding: 0; /* Удаление отступов внутри контейнера */
+    }
+
+    .foot__item--wide {
+        grid-column: span 2; /* Расширение блока на две колонки */
+    }
+
+    .foot__item {
+        transform: scale(0.8);
+    }
+
+    .foot__itemsocialblock {
+        gap: 10px;
+    }
+}
